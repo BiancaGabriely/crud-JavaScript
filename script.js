@@ -46,3 +46,16 @@ function listar(){
 
     tabela.style.display = "table";
 };
+
+function editar(campo){
+    let cpfBusca = Number(prompt(`Digite o CPF para busca:`));
+
+
+    let usuario = usuarios.find(u => u.cpf === cpfBusca);
+
+    let novoValor = prompt(`Digite o novo ${campo}`);
+
+    usuario[campo] = novoValor;
+
+
+};
