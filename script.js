@@ -2,12 +2,14 @@ let usuarios = [];
 
 function cadastrar(){
     let nome = document.getElementById("nome").value;
-    let cpf = Number(document.getElementById("cpf").value);
+    let cpf = document.getElementById("cpf").value;
+    
+    if(cpf.trim() === ""){
+        alert("O campo está vazio. Insira um CPF!");
+        return;
+    }; 
 
-    let usuario = {
-        cpf: cpf,
-        nome: nome
-    };
+    cpf = Number(cpf);
 
     let existe = usuarios.some(u => u.cpf === cpf);
 
@@ -15,6 +17,11 @@ function cadastrar(){
         alert("ERRO: Este CPF já está cadastrado.");
         return;
     }
+
+    let usuario = {
+        cpf: cpf,
+        nome: nome
+    };
 
     usuarios.push(usuario);
     alert("Usuário Cadastrado com Sucesso!");
@@ -68,6 +75,6 @@ function deletar(){
 
         alert("Usuário Removido!");
     }else{
-        alert("Usuário não encontrado!")
+        alert("Usuário não encontrado!");
     }
 };
