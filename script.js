@@ -50,12 +50,24 @@ function listar(){
 function editar(campo){
     let cpfBusca = Number(prompt(`Digite o CPF para busca:`));
 
-
     let usuario = usuarios.find(u => u.cpf === cpfBusca);
 
     let novoValor = prompt(`Digite o novo ${campo}`);
 
     usuario[campo] = novoValor;
 
+};
 
+function deletar(){
+    let cpf_del = Number(prompt(`Informe o CPF que deseja deletar:`));
+
+    let indice = usuarios.findIndex(u => u.cpf === cpf_del);
+
+    if(indice !== -1 ){
+        usuarios.splice(indice, 1);
+
+        alert("Usuário Removido!");
+    }else{
+        alert("Usuário não encontrado!")
+    }
 };
